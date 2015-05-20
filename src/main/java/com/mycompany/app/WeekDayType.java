@@ -13,13 +13,16 @@ public enum WeekDayType {
     public String title;
     public int id;
     public boolean weekendDay;
+    WeekDayType(){
 
+    }
 
     WeekDayType(String title, int id,boolean weekendDay){
         this.title=title;
         this.id=id;
         this.weekendDay=weekendDay;
     }
+    @Override
     public String toString(){
         return title;
     }

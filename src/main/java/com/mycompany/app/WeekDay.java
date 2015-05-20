@@ -9,19 +9,25 @@ import java.util.Date;
 public class WeekDay {
     public WeekDayType type;
     public Calendar date;
-    public Week week;
+ //   public Week week;
+    public WeekDay(){
 
-    public WeekDay(WeekDayType type, Calendar date, Week week) {
-        this.type = type;
-        this.date = date;
-        this.week = week;
     }
 
+    public WeekDay( Calendar date) {
+        //this.type = type;
+        this.date = date;
+        //this.week = week;
+    }
+    @Override
     public String toString(){
+        String dayOfMonth;
         if (type.weekendDay==true){
-            System.out.println("\033[31m"+date.get(Calendar.DAY_OF_MONTH)+"\t\033[0m");
+            dayOfMonth="\033[31m"+Integer.toString(date.get(Calendar.DAY_OF_MONTH))+"\t\033[0m";
         } else {
-            System.out.println(date.);
+            dayOfMonth =Integer.toString(date.get(Calendar.DAY_OF_MONTH));
         }
+        //return null;
+        return dayOfMonth;
     }
 }
