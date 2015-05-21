@@ -1,32 +1,35 @@
 package com.mycompany.app;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.lang.NullPointerException;
 /**
  * Created by employee on 5/20/15.
  */
 public class MonthCalendar {
-    Week arr[] = new Week[6];
+    //Week arr[] = new Week[6];
+    ArrayList<Week> arr = new ArrayList<>();
     Calendar date;
 
-    Week week = new Week(date);
+
 
     MonthCalendar(Calendar date){
         this.date = date;
     }
 
-    public void createMonth()throws NullPointerException{
-        for (int firstWeek=0; firstWeek < arr.length; firstWeek++) {
-            arr[firstWeek] = week;
+    Week week = new Week(date);
+
+    public void createMonth(){
+        for (int firstWeek=0; firstWeek < arr.size(); firstWeek++) {
+            arr.set(firstWeek, week);
             week.createNewWeek();
         }
     }
     @Override
-    public String toString()throws NullPointerException{
-        createMonth();
+    public String toString(){
+        //createMonth();
         String weekInMonth = null;
-        for (int i = 0; i <arr.length ; i++) {
-            weekInMonth = weekInMonth + "\n\n" + arr[i];
+        for (int i = 0; i <arr.size() ; i++) {
+            weekInMonth = weekInMonth + "\n\n" + arr.get(i).toString();
         }
         return weekInMonth;
     }
