@@ -39,7 +39,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.mycompany.app.Clndr</mainClass>
+              <mainClass>com.mycompany.app.CalendarApplication</mainClass>
             </manifest>
           </archive>
         </configuration>

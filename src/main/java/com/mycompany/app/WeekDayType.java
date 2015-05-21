@@ -32,4 +32,7 @@ public enum WeekDayType {
         return title;
     }
 
+    public static WeekDayType getByDate(Calendar date) {
+        return values()[date.get(Calendar.DAY_OF_WEEK) - 1];
     }
+}

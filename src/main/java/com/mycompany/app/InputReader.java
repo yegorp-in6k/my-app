@@ -12,12 +12,19 @@ import java.util.regex.Pattern;
  * Created by employee on 5/20/15.
  */
 public class InputReader  {
-    InputReader() {
-
-    }
     int year= 2015;
     public String monthStr="";
-    public Calendar inputFromKeybord() throws IOException{
+    public InputReader() {
+
+    }
+    public InputReader(String year, String monthStr) {
+        this.year =Integer.parseInt(year);
+        this.monthStr = monthStr;
+    }
+    public void consolReader(){
+
+    }
+    public void inputFromKeybord() throws IOException{
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
          do {
             System.out.print("Insert year:");
@@ -29,7 +36,6 @@ public class InputReader  {
              }
             System.out.println("You insert month wrong!!!Try something like that:10|Oct|October");
          }while (checkMonth(monthStr)==false);
-        return null;
     }
     private static int getMonth(String monthStr) {
         int month=0;

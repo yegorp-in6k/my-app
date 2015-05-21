@@ -20,16 +20,15 @@ public class WeekDay {
         Calendar c =Calendar.getInstance();
         c.setTime(date.getTime());
         this.date = c;
-        type =  WeekDayType.values()[date.get(Calendar.DAY_OF_WEEK)-1];
+        type =  WeekDayType.getByDate(date);
     }
     @Override
     public String toString(){
-        String dayOfMonth="";
-        if (type.isWeekensDay()){
-            dayOfMonth = RED + date.get(Calendar.DAY_OF_MONTH);
-        } else {
-            dayOfMonth = BLACK +date.get(Calendar.DAY_OF_MONTH);
-        }
-        return dayOfMonth;
+        String result = "";
+
+        result += (type.isWeekensDay()) ? RED : BLACK;
+        result +="<td>" + date.get(Calendar.DAY_OF_MONTH)+"</td>";
+
+        return result;
     }
 }
