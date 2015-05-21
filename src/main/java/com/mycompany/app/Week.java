@@ -50,12 +50,18 @@ public class Week {
         }
         return this;
     }
-
-    @Override
     public String toString(){
         String week = "";
         for (WeekDay day:days) {
             week=week+"\t"+day.toString();
+        }
+        return week;
+    }
+
+    public String toStringHtml(){
+        String week = "";
+        for (WeekDay day:days) {
+            week=week+"\t"+day.toStringHtml();
         }
         return week;
     }

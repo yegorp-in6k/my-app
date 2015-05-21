@@ -31,11 +31,18 @@ public class MonthCalendar {
         }
     }
 
-    @Override
     public String toString(){
         String weekInMonth = "";
         for (Week week: weeks) {
-            weekInMonth +="\n\n" + "<tr>"+week.toString()+"</tr>";
+            weekInMonth +="\n\n" +week.toString();
+        }
+        return weekInMonth;
+    }
+
+    public String toStringHtml(){
+        String weekInMonth = "";
+        for (Week week: weeks) {
+            weekInMonth +="\n\n" +"<tr>"+ week.toStringHtml()+"</tr>";
         }
         return weekInMonth;
     }

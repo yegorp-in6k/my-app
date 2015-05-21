@@ -27,6 +27,14 @@ public class WeekDay {
         String result = "";
 
         result += (type.isWeekensDay()) ? RED : BLACK;
+        result += date.get(Calendar.DAY_OF_MONTH);
+
+        return result;
+    }
+    public String toStringHtml(){
+        String result = "";
+
+        result += (type.isWeekensDay()) ? RED : BLACK;
         result +="<td>" + date.get(Calendar.DAY_OF_MONTH)+"</td>";
 
         return result;

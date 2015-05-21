@@ -28,6 +28,10 @@ public class CalendarApplication {
 		Calendar date = reader.getDate();
 		MonthCalendar monthCalendar =new MonthCalendar(date);
 		System.out.println(monthCalendar.printHeader());
-		System.out.println("<table>"+monthCalendar.toString()+"</table>");
+		System.out.println(monthCalendar.toString());
+
+		System.out.println("<table>"+monthCalendar.printHeader()+"</table>");
+		System.out.println("<table>"+monthCalendar.toStringHtml()+"</table>");
 	}
+
 }
