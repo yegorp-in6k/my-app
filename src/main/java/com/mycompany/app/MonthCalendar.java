@@ -20,8 +20,8 @@ public class MonthCalendar {
 
     public void createMonth(){
         for (int firstWeek=0; firstWeek < arr.size(); firstWeek++) {
-            arr.set(firstWeek, week);
             week.createNewWeek();
+            arr.set(firstWeek, week);
         }
     }
     @Override
