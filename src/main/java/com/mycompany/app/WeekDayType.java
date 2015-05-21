@@ -27,9 +27,11 @@ public enum WeekDayType {
 
         return weekendDay;
     }
-    @Override
     public String toString(){
         return title;
+    }
+    public String toStringHtml(){
+        return "<td>"+title+"</td>";
     }
 
     public static WeekDayType getByDate(Calendar date) {

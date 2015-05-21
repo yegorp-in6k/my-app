@@ -12,26 +12,47 @@ import java.util.regex.Pattern;
 
 public class CalendarApplication {
 	public static void main(String[] args) {
-	InputReader reader = new InputReader();
+		BufferedReader reader= new BufferedReader(new InputStreamReader(System.in));
+		InputReader inputReader = new InputReader();
 
 		if (args.length==0){
 			System.out.println("Please input numbers!!");
 			try {
-				reader.inputFromKeybord();
+				inputReader.inputFromKeybord();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}else{
-			reader = new InputReader(args[0],args[1]);
+			inputReader = new InputReader(args[0],args[1]);
 		}
 
-		Calendar date = reader.getDate();
+		Calendar date = inputReader.getDate();
 		MonthCalendar monthCalendar =new MonthCalendar(date);
-		System.out.println(monthCalendar.printHeader());
-		System.out.println(monthCalendar.toString());
+		System.out.println("Chose type calendar output:\n" +
+				"1.Text calendar\n" +
+				"2.Calendar with HTML tags\n"+
+				"Your choice is:");
+		int choiceOfOutput=0;
+		try {
+			choiceOfOutput=Integer.parseInt(reader.readLine());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		switch (choiceOfOutput){
+			case 1:
+				System.out.println(monthCalendar.printHeader());
+				System.out.println(monthCalendar.toString());
+				break;
+			case 2:
+				System.out.println("<table>"+"<tr>"+monthCalendar.printHeaderHtml()+"</tr>"+"</table>");
+				System.out.println("<table>"+monthCalendar.toStringHtml()+"</table>");
 
-		System.out.println("<table>"+monthCalendar.printHeader()+"</table>");
-		System.out.println("<table>"+monthCalendar.toStringHtml()+"</table>");
+				break;
+		}
+
+
+
+
 	}
 
 }

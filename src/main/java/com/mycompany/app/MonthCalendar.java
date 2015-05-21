@@ -21,6 +21,13 @@ public class MonthCalendar {
         }
         return header;
     }
+    public String printHeaderHtml(){
+        String header = "";
+        for (WeekDayType weekDayType: Arrays.asList(WeekDayType.values())) {
+            header += "\t" + weekDayType.toStringHtml();
+        }
+        return header;
+    }
     private void createMonth(){
         Week currentWeek=new Week(date) ;
         weeks.add(currentWeek);
