@@ -13,23 +13,31 @@ public class MonthCalendar {
 
 
     MonthCalendar(Calendar date){
+        Calendar c = Calendar.getInstance();
+        c.setTime(date.getTime());
         this.date = date;
+
+
     }
 
-    Week week = new Week(date);
+
 
     public void createMonth(){
-        for (int firstWeek=0; firstWeek < arr.size(); firstWeek++) {
-            week.createNewWeek();
-            arr.set(firstWeek, week);
+        Week week=new Week(date) ;
+        arr.add(week);
+        for (int firstWeek=0; firstWeek < 5; firstWeek++) {
+
+            week=week.createNextWeek();
+            arr.add(week);
         }
     }
+
     @Override
     public String toString(){
         //createMonth();
-        String weekInMonth = null;
-        for (int i = 0; i <arr.size() ; i++) {
-            weekInMonth = weekInMonth + "\n\n" + arr.get(i).toString();
+        String weekInMonth = "";
+        for (Week week: arr) {
+            weekInMonth += "\n\n" + week.toString();
         }
         return weekInMonth;
     }

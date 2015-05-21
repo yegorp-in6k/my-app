@@ -14,8 +14,11 @@ public class Clndr {
 		InputReader reader = new InputReader();
 		Calendar date = reader.getFirstDayOfMonth();
 		//date=reader.c;
+		Calendar c = Calendar.getInstance();
 		MonthCalendar monthCalendar =new MonthCalendar(date);
 		monthCalendar.createMonth();
-		monthCalendar.toString();
+		System.out.println(monthCalendar.toString());
+		//WeekDay weekDay = new WeekDay(c);
+		//System.out.println(weekDay.toString());
 	}
 }
