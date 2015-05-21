@@ -1,6 +1,7 @@
 package com.mycompany.app;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 /**
  * Created by employee on 5/20/15.
@@ -14,7 +15,13 @@ public class MonthCalendar {
         c.setTime(date.getTime());
         this.date = date;
     }
-
+    public String printHeader(){
+        String header="";
+        for (WeekDayType weekDayType: Arrays.asList(WeekDayType.values())) {
+            header += "\t" + weekDayType.toString();
+        }
+        return header;
+    }
     public void createMonth(){
         Week week=new Week(date) ;
         arr.add(week);
@@ -27,7 +34,6 @@ public class MonthCalendar {
 
     @Override
     public String toString(){
-        //createMonth();
         String weekInMonth = "";
         for (Week week: arr) {
             weekInMonth += "\n\n" + week.toString();

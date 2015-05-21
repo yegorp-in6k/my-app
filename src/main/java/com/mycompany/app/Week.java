@@ -8,7 +8,6 @@ import java.util.GregorianCalendar;
  * Created by employee on 5/20/15.
  */
 public class Week {
-    private final int FIRST_DAY_OF_WEEK =1;
     private final int LAST_DAY_OF_WEEK =7;
     Calendar date;
     Calendar currentDate;
@@ -28,26 +27,26 @@ public class Week {
 
 
     public Week createNextWeek() {
-        Calendar c = Calendar.getInstance();
-        c.setTime(days.get(6).getDate().getTime());
-        c.add(Calendar.DAY_OF_YEAR, 1);
+        Calendar cloneOfDateForCreateNextWeek = Calendar.getInstance();
+        cloneOfDateForCreateNextWeek .setTime(days.get(LAST_DAY_OF_WEEK-1).getDate().getTime());
+        cloneOfDateForCreateNextWeek .add(Calendar.DAY_OF_YEAR, 1);
 
-        return new Week(c);
+        return new Week(cloneOfDateForCreateNextWeek );
     }
 
     public Week populateWeek() {
-        Calendar c = Calendar.getInstance();
-        c.setTime(date.getTime());
+        Calendar cloneOfDateForPopulateWeek = Calendar.getInstance();
+        cloneOfDateForPopulateWeek.setTime(date.getTime());
 
         int dayOfWeek = date.get(Calendar.DAY_OF_WEEK);
 
 
-        c.add(Calendar.DAY_OF_YEAR, -(dayOfWeek - 1));
+        cloneOfDateForPopulateWeek.add(Calendar.DAY_OF_YEAR, -(dayOfWeek - 1));
 
 
-        for (int i = 0; i < 7; i++) {
-            days.add(new WeekDay(c));
-            c.add(Calendar.DAY_OF_YEAR, 1);
+        for (int i = 0; i < LAST_DAY_OF_WEEK; i++) {
+            days.add(new WeekDay(cloneOfDateForPopulateWeek));
+            cloneOfDateForPopulateWeek.add(Calendar.DAY_OF_YEAR, 1);
         }
         return this;
     }

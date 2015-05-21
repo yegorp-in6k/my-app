@@ -11,22 +11,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Clndr {
-	public static void main(String[] args)  throws NullPointerException {
+	public static void main(String[] args) throws NullPointerException, IOException {
 		InputReader reader = new InputReader();
-		Calendar date = reader.getFirstDayOfMonth();
-		//WeekDayType header= new WeekDayType();
-		//date=reader.c;
-		//Calendar c = Calendar.getInstance();
-		String header="";
-		for (WeekDayType weekDayType: Arrays.asList(WeekDayType.values())) {
-			header += "\t" + weekDayType.toString();
-		}
-		System.out.println(header);
+		reader.inputFromKeybord();
+		Calendar date = reader.getDate();
 		MonthCalendar monthCalendar =new MonthCalendar(date);
 		monthCalendar.createMonth();
-		//System.out.println(header.toString());
+		System.out.println(monthCalendar.printHeader());
 		System.out.println(monthCalendar.toString());
-		//WeekDay weekDay = new WeekDay(c);
-		//System.out.println(weekDay.toString());
 	}
 }

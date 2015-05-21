@@ -9,7 +9,8 @@ import java.util.Date;
 public class WeekDay {
     public WeekDayType type;
     public Calendar date;
-
+    final String RED="\u001b[31m";
+    final String BLACK="\u001b[0m";
     public Calendar getDate(){
 
         return date;
@@ -25,11 +26,10 @@ public class WeekDay {
     public String toString(){
         String dayOfMonth="";
         if (type.isWeekensDay()){
-            dayOfMonth="\033[31m"+date.get(Calendar.DAY_OF_MONTH)+"\033[0m";
+            dayOfMonth = RED + date.get(Calendar.DAY_OF_MONTH);
         } else {
-            dayOfMonth =Integer.toString(date.get(Calendar.DAY_OF_MONTH));
+            dayOfMonth = BLACK +date.get(Calendar.DAY_OF_MONTH);
         }
-        //return null;
         return dayOfMonth;
     }
 }
