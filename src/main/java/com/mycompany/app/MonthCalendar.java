@@ -6,21 +6,14 @@ import java.util.Calendar;
  * Created by employee on 5/20/15.
  */
 public class MonthCalendar {
-    //Week arr[] = new Week[6];
     ArrayList<Week> arr = new ArrayList<>();
     Calendar date;
 
-
-
-    MonthCalendar(Calendar date){
+    public MonthCalendar(Calendar date){
         Calendar c = Calendar.getInstance();
         c.setTime(date.getTime());
         this.date = date;
-
-
     }
-
-
 
     public void createMonth(){
         Week week=new Week(date) ;

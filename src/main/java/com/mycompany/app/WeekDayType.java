@@ -17,9 +17,6 @@ public enum WeekDayType {
     public String title;
     public int id;
     public boolean weekendDay;
-    WeekDayType(){
-
-    }
 
     WeekDayType(String title, int id,boolean weekendDay){
         this.title=title;
@@ -27,11 +24,11 @@ public enum WeekDayType {
         this.weekendDay=weekendDay;
     }
     public  boolean isWeekensDay(){
+
         return weekendDay;
     }
     @Override
     public String toString(){
-
         return title;
     }
 

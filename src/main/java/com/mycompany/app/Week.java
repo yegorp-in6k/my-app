@@ -51,30 +51,6 @@ public class Week {
         }
         return this;
     }
-/*
-        WeekDay weekDay = new WeekDay(date);
-        int currentDayOfWeek = date.get(Calendar.DAY_OF_WEEK);
-        if (FIRST_DAY_OF_WEEK <= currentDayOfWeek){
-            while ( FIRST_DAY_OF_WEEK <= currentDayOfWeek){
-                days.add(weekDay);
-                currentDayOfWeek--;
-                //weekDay.date.add(Calendar.DAY_OF_MONTH,-1);
-                date=new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH),
-                        date.get(Calendar.DAY_OF_MONTH) - 1);
-                weekDay=new WeekDay(date);
-
-            }
-        } else {
-            while (LAST_DAY_OF_WEEK > currentDayOfWeek){
-                currentDayOfWeek++;
-                days.add(weekDay);
-                //weekDay.date.add(Calendar.DAY_OF_MONTH,1);
-                weekDay=new WeekDay(date);
-                date=new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH),
-                        date.get(Calendar.DAY_OF_MONTH) + 1);
-            }
-        }
-        */
 
     @Override
     public String toString(){

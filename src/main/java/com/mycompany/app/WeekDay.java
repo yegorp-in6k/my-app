@@ -9,22 +9,16 @@ import java.util.Date;
 public class WeekDay {
     public WeekDayType type;
     public Calendar date;
-    // public Week week;
-    public WeekDay(){
-
-    }
 
     public Calendar getDate(){
+
         return date;
     }
 
     public WeekDay( Calendar date) {
-        //this.type = type;
         Calendar c =Calendar.getInstance();
         c.setTime(date.getTime());
-
         this.date = c;
-        //this.week = week;
         type =  WeekDayType.values()[date.get(Calendar.DAY_OF_WEEK)-1];
     }
     @Override

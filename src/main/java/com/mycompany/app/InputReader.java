@@ -13,11 +13,8 @@ public class InputReader {
     Calendar c = Calendar.getInstance();
 
     public Calendar getFirstDayOfMonth() {
-
         c.set(Calendar.DAY_OF_MONTH, 1);
-
         return c;
-
     }
 
 }
