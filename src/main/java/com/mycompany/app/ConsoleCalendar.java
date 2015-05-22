@@ -6,18 +6,12 @@ import java.util.Calendar;
 /**
  * Created by employee on 5/22/15.
  */
-public class ConsoleCalendar implements CalendarRender {
+public class ConsoleCalendar extends AbstractCalendarRender {
     /*ArrayList<Week> weeks = new ArrayList<>();
     ArrayList<WeekDay> weekDays = new ArrayList<>();
     String week;
     String day;*/
-    @Override
-    public void getOpenDayToken(){
-
-    }
-    public abstract void getCloseDayToken();
-    public abstract void getOpenWeekToken();
-    public abstract void getCloseWeekToken();
+/*
     public String render(MonthCalendar monthCalendar) {
         String result="";
         //weeks = monthCalendar.getWeeks();
@@ -30,5 +24,30 @@ public class ConsoleCalendar implements CalendarRender {
             result +="\n";
         }
         return result;
+    }*/
+
+    @Override
+    public String getCloseDayToken() {
+        return "\t";
     }
+    @Override
+    public String getCloseWeekToken() {
+        return "\n";
+    }
+
+    @Override
+    public String getOpenDayToken() {
+        return "";
+    }
+    @Override
+    public String getOpenWeekToken() {
+        return "";
+    }
+    @Override
+    public String getOpenDayColorToken() {
+        return "\033[31m";
+    }
+    @Override
+    public String getCloseDayColorToken() {
+        return "\033[0m";}
 }
