@@ -11,10 +11,9 @@ public class Week {
     private final int LAST_DAY_OF_WEEK =7;
     Calendar date;
     Calendar currentDate;
-
     private ArrayList<WeekDay> days;
-
-    Week(Calendar date){
+    
+    public Week(Calendar date){
         this.date = date;
         days = new ArrayList<>();
         currentDate = Calendar.getInstance();
@@ -24,7 +23,9 @@ public class Week {
         populateWeek();
     }
 
-
+    public ArrayList<WeekDay> getDays() {
+        return days;
+    }
 
     public Week createNextWeek() {
         Calendar dateForCreateNextWeek = Calendar.getInstance();
@@ -37,31 +38,26 @@ public class Week {
     public Week populateWeek() {
         Calendar dateForPopulateWeek = Calendar.getInstance();
         dateForPopulateWeek.setTime(date.getTime());
-
         int dayOfWeek = date.get(Calendar.DAY_OF_WEEK);
-
-
-        dateForPopulateWeek.add(Calendar.DAY_OF_YEAR, -(dayOfWeek - 1));
-
-
+        dateForPopulateWeek.add(Calendar.DATE, -(dayOfWeek - 1));
         for (int i = 0; i < LAST_DAY_OF_WEEK; i++) {
             days.add(new WeekDay(dateForPopulateWeek));
-            dateForPopulateWeek.add(Calendar.DAY_OF_YEAR, 1);
+            dateForPopulateWeek.add(Calendar.DAY_OF_MONTH, 1);
         }
         return this;
     }
     public String toString(){
         String week = "";
         for (WeekDay day:days) {
-            week=week+"\t"+day.toString();
+            week = week + "\t" + day.toString();
         }
         return week;
     }
 
-    public String toStringHtml(){
+    public String toHtml(){
         String week = "";
         for (WeekDay day:days) {
-            week=week+"\t"+day.toStringHtml();
+            week=week + "\t" + day.toStringHtml();
         }
         return week;
     }

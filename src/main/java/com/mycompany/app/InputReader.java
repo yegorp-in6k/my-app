@@ -21,9 +21,7 @@ public class InputReader  {
         this.year =Integer.parseInt(year);
         this.monthStr = monthStr;
     }
-    public void consolReader(){
 
-    }
     public void inputFromKeybord() throws IOException{
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
          do {
@@ -108,12 +106,14 @@ public class InputReader  {
         Matcher m = p.matcher(testString);
         return m.matches();
     }
-    Calendar c = Calendar.getInstance();
+   // Calendar c = Calendar.getInstance();
 
     public Calendar getDate() {
+        Calendar c = Calendar.getInstance();
         c.set(Calendar.DAY_OF_MONTH, 1);
         c.set(Calendar.MONTH, getMonth(monthStr));
         c.set(Calendar.YEAR, year);
+        //c.set
         return c;
     }
 

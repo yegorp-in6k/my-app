@@ -30,7 +30,7 @@ public enum WeekDayType {
     public String toString(){
         return title;
     }
-    public String toStringHtml(){
+    public String toHtml(){
         return "<td>"+title+"</td>";
     }
 

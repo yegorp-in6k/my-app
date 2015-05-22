@@ -10,8 +10,12 @@ public class MonthCalendar {
     ArrayList<Week> weeks = new ArrayList<>();
     Calendar date = Calendar.getInstance();
 
+    public ArrayList<Week> getWeeks() {
+        return weeks;
+    }
+
     public MonthCalendar(Calendar date){
-        date.setTime(date.getTime());
+        this.date.setTime(date.getTime());
         createMonth();
     }
     public String printHeader(){
@@ -24,7 +28,7 @@ public class MonthCalendar {
     public String printHeaderHtml(){
         String header = "";
         for (WeekDayType weekDayType: Arrays.asList(WeekDayType.values())) {
-            header += "\t" + weekDayType.toStringHtml();
+            header += "\t" + weekDayType.toHtml();
         }
         return header;
     }
@@ -46,10 +50,10 @@ public class MonthCalendar {
         return weekInMonth;
     }
 
-    public String toStringHtml(){
+    public String toHtml(){
         String weekInMonth = "";
         for (Week week: weeks) {
-            weekInMonth +="\n\n" +"<tr>"+ week.toStringHtml()+"</tr>";
+            weekInMonth +="\n\n" +"<tr>"+ week.toHtml()+"</tr>";
         }
         return weekInMonth;
     }
