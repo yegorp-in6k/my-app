@@ -22,16 +22,12 @@ public class CalendarApplication {
 		}
 
 		Calendar date = inputReader.getDate();
-		MonthCalendar monthCalendar =new MonthCalendar(date);
-
-
-
-
+		MonthCalendar monthCalendar = new MonthCalendar(date);
 		System.out.println("Chose type calendar output:\n" +
 				"1.Text calendar\n" +
 				"2.Calendar with HTML tags\n"+
 				"Your choice is:");
-		int choiceOfOutput=0;
+		int choiceOfOutput = 0;
 		try {
 			choiceOfOutput=Integer.parseInt(reader.readLine());
 		} catch (IOException e) {
@@ -39,15 +35,17 @@ public class CalendarApplication {
 		}
 		switch (choiceOfOutput){
 			case 1:
-				CalendarRender render=new ConsoleCalendar();
+				CalendarRender render = new ConsoleCalendar();
+				System.out.println(monthCalendar.counterOfWeeksInMonth());
+				System.out.println(render.renderHead());
 				System.out.println(render.render(monthCalendar));
-
 				//System.out.println(monthCalendar.printHeader());
 				//System.out.println(monthCalendar.toString());
 				break;
 			case 2:
-				CalendarRender render1=new HtmlCalendarRender();
-				System.out.println(render1.render(monthCalendar));
+				CalendarRender htmlCalendarRender = new HtmlCalendarRender();
+				System.out.println(htmlCalendarRender.renderHead());
+				System.out.println(htmlCalendarRender.render(monthCalendar));
 				//System.out.println("<table>"+"<tr>"+monthCalendar.printHeaderHtml()+"</tr>"+"</table>");
 				//System.out.println("<table>"+monthCalendar.toHtml()+"</table>");
 

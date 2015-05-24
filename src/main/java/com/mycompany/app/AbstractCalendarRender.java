@@ -1,5 +1,6 @@
 package com.mycompany.app;
 
+import java.util.Arrays;
 import java.util.Calendar;
 
 /**
@@ -28,9 +29,20 @@ public abstract class  AbstractCalendarRender implements CalendarRender{
         return getOpenWeekToken()+result+getCloseWeekToken();
     }
     public String renderWeek(WeekDay days){
-        String day= days.toString();
+        WeekDayType type = WeekDayType.getByDate(days.getDate());
+        String day = "";
+        if ((type.isWeekensDay()==true)){
+            day = getOpenDayColorToken() + days.toString() + getCloseDayColorToken();
+        } else {
+        day= days.toString();}
         return getOpenDayToken()+day+getCloseDayToken();
     }
 
-
+    public String renderHead(){
+        String result="";
+        for (WeekDayType weekDayType: Arrays.asList(WeekDayType.values())) {
+            result+= getOpenDayToken() + weekDayType.title + getCloseDayToken();
+        }
+        return getOpenWeekToken() + result + getCloseWeekToken();
+    }
 }

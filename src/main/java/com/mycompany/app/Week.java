@@ -46,19 +46,4 @@ public class Week {
         }
         return this;
     }
-    public String toString(){
-        String week = "";
-        for (WeekDay day:days) {
-            week = week + "\t" + day.toString();
-        }
-        return week;
-    }
-
-    public String toHtml(){
-        String week = "";
-        for (WeekDay day:days) {
-            week=week + "\t" + day.toStringHtml();
-        }
-        return week;
-    }
 }

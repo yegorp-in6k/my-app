@@ -18,43 +18,18 @@ public class MonthCalendar {
         this.date.setTime(date.getTime());
         createMonth();
     }
-    public String printHeader(){
-        String header = "";
-        for (WeekDayType weekDayType: Arrays.asList(WeekDayType.values())) {
-            header += "\t" + weekDayType.toString();
-        }
-        return header;
-    }
-    public String printHeaderHtml(){
-        String header = "";
-        for (WeekDayType weekDayType: Arrays.asList(WeekDayType.values())) {
-            header += "\t" + weekDayType.toHtml();
-        }
-        return header;
+    public int counterOfWeeksInMonth(){
+        double dayOfMonth=date.getActualMaximum(Calendar.DAY_OF_MONTH);
+        double numberOfWeeks = (dayOfMonth/7);
+        return (int) Math.ceil(numberOfWeeks);
     }
     private void createMonth(){
         Week currentWeek=new Week(date) ;
         weeks.add(currentWeek);
-        for (int firstWeek=0; firstWeek < 5; firstWeek++) {
+        for (int firstWeek=0; firstWeek < counterOfWeeksInMonth() /*5*/; firstWeek++) {
 
             currentWeek = currentWeek.createNextWeek();
             weeks.add(currentWeek);
         }
-    }
-
-    public String toString(){
-        String weekInMonth = "";
-        for (Week week: weeks) {
-            weekInMonth +="\n\n" +week.toString();
-        }
-        return weekInMonth;
-    }
-
-    public String toHtml(){
-        String weekInMonth = "";
-        for (Week week: weeks) {
-            weekInMonth +="\n\n" +"<tr>"+ week.toHtml()+"</tr>";
-        }
-        return weekInMonth;
     }
 }

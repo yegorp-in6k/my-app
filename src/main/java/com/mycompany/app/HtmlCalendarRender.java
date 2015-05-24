@@ -34,6 +34,10 @@ public class HtmlCalendarRender extends  AbstractCalendarRender{
         return "<table border=\"1\">" + super.render(monthCalendar) + "</table>";
     }
     @Override
+    public String renderHead() {
+        return "<table border=\"1\">" + super.renderHead() + "</table>";
+    }
+    @Override
     public String getCloseDayColorToken() {
         return "</font color>";
     }

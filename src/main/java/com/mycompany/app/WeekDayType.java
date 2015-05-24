@@ -30,9 +30,6 @@ public enum WeekDayType {
     public String toString(){
         return title;
     }
-    public String toHtml(){
-        return "<td>"+title+"</td>";
-    }
 
     public static WeekDayType getByDate(Calendar date) {
         return values()[date.get(Calendar.DAY_OF_WEEK) - 1];
