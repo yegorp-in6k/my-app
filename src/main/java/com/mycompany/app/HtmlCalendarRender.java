@@ -35,7 +35,7 @@ public class HtmlCalendarRender extends  AbstractCalendarRender{
     }
     @Override
     public String renderHead() {
-        return "<table border=\"1\">" + super.renderHead() + "</table>";
+        return  super.renderHead();
     }
     @Override
     public String getCloseDayColorToken() {

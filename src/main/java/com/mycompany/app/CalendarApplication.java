@@ -20,7 +20,6 @@ public class CalendarApplication {
 		}else{
 			inputReader = new InputReader(args[0],args[1]);
 		}
-
 		Calendar date = inputReader.getDate();
 		MonthCalendar monthCalendar = new MonthCalendar(date);
 		System.out.println("Chose type calendar output:\n" +
@@ -37,7 +36,6 @@ public class CalendarApplication {
 		switch (choiceOfOutput){
 			case 1:
 				render = new ConsoleCalendar();
-				System.out.println(monthCalendar.counterOfWeeksInMonth());
 				//System.out.println(render.renderHead());
 				System.out.println(render.render(monthCalendar));
 				//System.out.println(monthCalendar.printHeader());
@@ -51,10 +49,18 @@ public class CalendarApplication {
 				//System.out.println("<table>"+monthCalendar.toHtml()+"</table>");
 
 				break;
+			case 3:
+				WorkWithFile file = new WorkWithFile();
+				String year = file.getYearStr(file.inputFromFile());
+				String month = file.getMonthStr(file.inputFromFile());
+				InputReader reader1 = new InputReader(year,month);
+				Calendar date1 = inputReader.getDate();
+				MonthCalendar monthCalendar1 = new MonthCalendar(date1);
+				render = new HtmlCalendarRender();
+				String monthClndr =render.render(monthCalendar);
+				file.outputToFile(monthClndr);
+				break;
 		}
-
-
-
 
 	}
 
