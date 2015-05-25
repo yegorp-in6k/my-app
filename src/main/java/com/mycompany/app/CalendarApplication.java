@@ -33,19 +33,20 @@ public class CalendarApplication {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		CalendarRender render;
 		switch (choiceOfOutput){
 			case 1:
-				CalendarRender render = new ConsoleCalendar();
+				render = new ConsoleCalendar();
 				System.out.println(monthCalendar.counterOfWeeksInMonth());
-				System.out.println(render.renderHead());
+				//System.out.println(render.renderHead());
 				System.out.println(render.render(monthCalendar));
 				//System.out.println(monthCalendar.printHeader());
 				//System.out.println(monthCalendar.toString());
 				break;
 			case 2:
-				CalendarRender htmlCalendarRender = new HtmlCalendarRender();
-				System.out.println(htmlCalendarRender.renderHead());
-				System.out.println(htmlCalendarRender.render(monthCalendar));
+				render = new HtmlCalendarRender();
+				//System.out.println(htmlCalendarRender.renderHead());
+				System.out.println(render.render(monthCalendar));
 				//System.out.println("<table>"+"<tr>"+monthCalendar.printHeaderHtml()+"</tr>"+"</table>");
 				//System.out.println("<table>"+monthCalendar.toHtml()+"</table>");
 

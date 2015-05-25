@@ -5,5 +5,4 @@ package com.mycompany.app;
  */
 public interface CalendarRender  {
     String render (MonthCalendar monthCalendar);
-    String renderHead ();
 }

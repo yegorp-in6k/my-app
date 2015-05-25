@@ -15,7 +15,7 @@ public abstract class  AbstractCalendarRender implements CalendarRender{
     public abstract String getCloseDayColorToken();
 
     public String render(MonthCalendar monthCalendar) {
-        String result = "";
+        String result = renderHead();
         for (Week week : monthCalendar.getWeeks()){
             result += renderWeeks(week);
         }
