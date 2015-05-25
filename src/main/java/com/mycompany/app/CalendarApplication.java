@@ -10,7 +10,7 @@ public class CalendarApplication {
 		BufferedReader reader= new BufferedReader(new InputStreamReader(System.in));
 		InputReader inputReader = new InputReader();
 
-		if (args.length==0){
+		/*if (args.length==0){
 			System.out.println("Please input numbers!!");
 			try {
 				inputReader.inputFromKeybord();
@@ -19,7 +19,7 @@ public class CalendarApplication {
 			}
 		}else{
 			inputReader = new InputReader(args[0],args[1]);
-		}
+		}*/
 		Calendar date = inputReader.getDate();
 		MonthCalendar monthCalendar = new MonthCalendar(date);
 		System.out.println("Chose type calendar output:\n" +
@@ -51,13 +51,11 @@ public class CalendarApplication {
 				break;
 			case 3:
 				WorkWithFile file = new WorkWithFile();
-				String year = file.getYearStr(file.inputFromFile());
-				String month = file.getMonthStr(file.inputFromFile());
-				InputReader reader1 = new InputReader(year,month);
-				Calendar date1 = inputReader.getDate();
+				InputReader reader1 = new InputReader(file.getYearStr(),file.getMonthStr());
+				Calendar date1 = reader1.getDate();
 				MonthCalendar monthCalendar1 = new MonthCalendar(date1);
 				render = new HtmlCalendarRender();
-				String monthClndr =render.render(monthCalendar);
+				String monthClndr =render.render(monthCalendar1);
 				file.outputToFile(monthClndr);
 				break;
 		}

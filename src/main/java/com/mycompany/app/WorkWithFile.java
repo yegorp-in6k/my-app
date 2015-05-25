@@ -1,4 +1,4 @@
-package com.mycompany.app;
+ package com.mycompany.app;
 
 import java.io.*;
 
@@ -24,20 +24,33 @@ public class WorkWithFile {
         }
         return test;
     }
-    public String getYearStr (String[] test){
+    String[] test=inputFromFile();
+    public String getYearStr (){
         return test[0];
     }
-    public String getMonthStr (String[] test){
+    public String getMonthStr (){
         return test[1];
     }
     public void outputToFile (String monthCalendar){
         try
         {
-            BufferedWriter outfile = new BufferedWriter(new FileWriter("C:\\read\\test.txt"));
+            BufferedWriter outfile = new BufferedWriter(new FileWriter("C:\\read\\"+test[1]+".html"));
             outfile.write(String.valueOf(monthCalendar));
             outfile.close();
         }
         catch (IOException e)    {    }
-
+    }
+    public void createNewFile (){
+        try
+        {
+            File file = new File("C:\\read\\" +
+                    test[1]+".html");
+             file.createNewFile();
+        }
+        catch (IOException e)    {   }
+    }
+    public void createDirectory(){
+        File myPath = new File("C:\\read\\"+test[0]+"\\");
+        myPath.mkdir();
     }
 }
