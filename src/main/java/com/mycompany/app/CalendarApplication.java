@@ -40,22 +40,12 @@ public class CalendarApplication {
 				break;
 			case 2:
 				render = new HtmlCalendarRender();
-				//System.out.println(htmlCalendarRender.renderHead());
 				System.out.println(render.render(monthCalendar));
-				//System.out.println("<table>"+"<tr>"+monthCalendar.printHeaderHtml()+"</tr>"+"</table>");
-				//System.out.println("<table>"+monthCalendar.toHtml()+"</table>");
-
 				break;
 			case 3:
-				WorkWithFile file = new WorkWithFile();
-				file.createNewDirectory();
-				InputReader reader1 = new InputReader(file.getYearStr(),file.getMonthStr());
-				Calendar date1 = reader1.getDate();
-				MonthCalendar monthCalendar1 = new MonthCalendar(date1);
-				render = new HtmlCalendarRender();
-				file.createNewFile();
-				String monthClndr =render.render(monthCalendar1);
-				file.outputToFile(monthClndr);
+				CustomCalendar customCalendar = new CustomCalendar();
+				customCalendar.inputFromFile();
+				customCalendar.persist();
 				break;
 		}
 

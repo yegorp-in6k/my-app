@@ -32,4 +32,8 @@ public class MonthCalendar {
             weeks.add(currentWeek);
         }
     }
+
+    public Calendar getDate() {
+        return date;
+    }
 }
