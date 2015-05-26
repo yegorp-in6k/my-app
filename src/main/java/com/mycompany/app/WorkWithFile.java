@@ -7,34 +7,33 @@ import java.io.*;
  */
 public class WorkWithFile {
     public String[] inputFromFile(){
-        String[] test = new String[0];
+        String[] calendarValues= new String[0];
         try
         {
             BufferedReader infile = new BufferedReader(new FileReader("C:\\read\\readFile.txt"));
             String str;
             while ((str = infile.readLine()) != null)
             {
-                test = str.trim().split("\\s+");
+                calendarValues = str.trim().split("\\s+");
             }
             infile.close();
         }
         catch (IOException e)
         {
-            // Exceptions ignored.
         }
-        return test;
+        return calendarValues;
     }
-    String[] test=inputFromFile();
+    String[] valuesFromFile=inputFromFile();
     public String getYearStr (){
-        return test[0];
+        return valuesFromFile[0];
     }
     public String getMonthStr (){
-        return test[1];
+        return valuesFromFile[1];
     }
     public void outputToFile (String monthCalendar){
         try
         {
-            BufferedWriter outfile = new BufferedWriter(new FileWriter("C:\\read\\"+test[1]+".html"));
+            BufferedWriter outfile = new BufferedWriter(new FileWriter("C:\\read\\"+valuesFromFile[1]+".html"));
             outfile.write(String.valueOf(monthCalendar));
             outfile.close();
         }
@@ -44,13 +43,13 @@ public class WorkWithFile {
         try
         {
             File file = new File("C:\\read\\" +
-                    test[1]+".html");
+                    valuesFromFile[1]+".html");
              file.createNewFile();
         }
         catch (IOException e)    {   }
     }
-    public void createDirectory(){
-        File myPath = new File("C:\\read\\"+test[0]+"\\");
-        myPath.mkdir();
+    public void createNewDirectory() throws IOException {
+        File file = new File("C:\\read\\" + valuesFromFile[0] + "\\");
+        file.mkdir();
     }
 }
