@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Calendar;
 
 public class CalendarApplication {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		BufferedReader reader= new BufferedReader(new InputStreamReader(System.in));
 		InputReader inputReader = new InputReader();
 
@@ -36,10 +36,7 @@ public class CalendarApplication {
 		switch (choiceOfOutput){
 			case 1:
 				render = new ConsoleCalendar();
-				//System.out.println(render.renderHead());
 				System.out.println(render.render(monthCalendar));
-				//System.out.println(monthCalendar.printHeader());
-				//System.out.println(monthCalendar.toString());
 				break;
 			case 2:
 				render = new HtmlCalendarRender();
@@ -51,16 +48,16 @@ public class CalendarApplication {
 				break;
 			case 3:
 				WorkWithFile file = new WorkWithFile();
+				file.createNewDirectory();
 				InputReader reader1 = new InputReader(file.getYearStr(),file.getMonthStr());
 				Calendar date1 = reader1.getDate();
 				MonthCalendar monthCalendar1 = new MonthCalendar(date1);
 				render = new HtmlCalendarRender();
+				file.createNewFile();
 				String monthClndr =render.render(monthCalendar1);
 				file.outputToFile(monthClndr);
 				break;
 		}
-
-
 
 
 	}

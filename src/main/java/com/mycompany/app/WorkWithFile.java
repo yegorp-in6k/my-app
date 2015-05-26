@@ -10,7 +10,7 @@ public class WorkWithFile {
         String[] calendarValues= new String[0];
         try
         {
-            BufferedReader infile = new BufferedReader(new FileReader("C:\\read\\readFile.txt"));
+            BufferedReader infile = new BufferedReader(new FileReader("/home/employee/Documents/readaThisFile.txt"));
             String str;
             while ((str = infile.readLine()) != null)
             {
@@ -33,7 +33,8 @@ public class WorkWithFile {
     public void outputToFile (String monthCalendar){
         try
         {
-            BufferedWriter outfile = new BufferedWriter(new FileWriter("C:\\read\\"+valuesFromFile[1]+".html"));
+            BufferedWriter outfile = new BufferedWriter(new FileWriter("/home/employee/Documents/"+valuesFromFile[0] +
+                    File.separator+valuesFromFile[1]+".html"));
             outfile.write(String.valueOf(monthCalendar));
             outfile.close();
         }
@@ -42,14 +43,14 @@ public class WorkWithFile {
     public void createNewFile (){
         try
         {
-            File file = new File("C:\\read\\" +
+            File file = new File("/home/employee/Documents/" +valuesFromFile[0]+File.separator+
                     valuesFromFile[1]+".html");
              file.createNewFile();
         }
         catch (IOException e)    {   }
     }
     public void createNewDirectory() throws IOException {
-        File file = new File("C:\\read\\" + valuesFromFile[0] + "\\");
+        File file = new File("/home/employee/Documents/"+ valuesFromFile[0]);
         file.mkdir();
     }
 }
