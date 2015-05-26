@@ -45,18 +45,4 @@ public class HtmlCalendarRender extends  AbstractCalendarRender{
     public String getOpenDayColorToken() {
         return "<font color=\"red\">";
     }
-/*
-    public String render(MonthCalendar monthCalendar) {
-        String result="";
-        //weeks = monthCalendar.getWeeks();
-        //weekDays = weeks.get(day).getDays();
-        for (Week week : monthCalendar.getWeeks()){
-            //System.out.println(week.toString());
-            for (WeekDay day : week.getDays()){
-                result +=getOpenDayToken()+day+getCloseDayToken()+"\t";
-            }
-            result=result+"\n"+getCloseWeekToken()+getOpenWeekToken();
-        }
-        return getOpenMonthToken()+getOpenWeekToken()+result+getCloseWeekToken()+getCloseMonthToken();
-    }*/
 }
